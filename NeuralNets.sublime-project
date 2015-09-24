@@ -1,0 +1,13 @@
+{
+	"folders":
+	[
+		{
+			"path": ".",
+			"file_exclude_patterns": ["*.acn", "*.acr", "*.alg", "*.aux", "*.auxlock", "*.bbl", "*.blg", "*.fdb_latexmk",  "*.fls", "*.glg", "*.glo", "*.gls", "*.ist", "*.log", "*.out", "*.synctex.gz*", "*.toc", "*.dpth", "*.md5", "*.4ct", "*.4tc", "*.dvi"]
+		}
+	],
+	"options": {
+		"root": "NeuralNets.tex",
+		"pdf": "NeuralNets"
+	}
+}
