@@ -1,9 +1,13 @@
+%!TEX root = ../NeuralNets.tex
 \section{Distortion Measures}\label{sec:lvq-distortion-measures}
 Literature: \cite{Linde1980}
 
-Distortion is an nonnegative measure for an input vector $x$ and a reproduction vector $y$. Distortion measures may not be true metrics, \eg be unsymmetric or not fulfill the triangle inequality\footnote{triangle inequality: $d(x, y) \leq d(x, y) + d(y, y)$, for all $y$}.
+Distortion is an nonnegative measure for an input vector $x$ and a reproduction
+vector $y$. Distortion measures may not be true metrics, \eg be unsymmetric or
+not fulfill the triangle inequality\footnote{triangle inequality: $d(x, y) \leq d(x, y) + d(y, y)$, for all $y$}.
 
-Most common is the squared-error distortion, better known as squared Euclidean distance:
+Most common is the squared-error distortion, better known as squared Euclidean
+distance:
 \begin{equation}
 d(x, y) = ||x-y||_2^2 = (x-y)^T (x-y) = \sum_{i=1}^N (x_i-y_i)^2
 \end{equation}
@@ -18,9 +22,13 @@ and its $\nu^{th}$ power, the $\nu^{th}$-law distortion:
 d(x, y) = \sum_{i=1}^N |x_i - y_i|^\nu
 \end{equation}
 
-The holder Norm (\ref{eq:holder-norm}) is a distance and fulfills the triangle inequality, the $\nu^{th}$-law distortion not.
+The holder Norm (\cref{eq:holder-norm}) is a distance and fulfills the triangle
+inequality, the $\nu^{th}$-law distortion not.
 
-All three and many others, as the weighted-squares distortion and the quadratic distortion, only depend on the difference $(x - y)$ and can be described with $d(x, y) = L(x - y)$. A distortion not having this form is the one by Itakura, Saito and Chaffee,
+All three and many others, as the weighted-squares distortion and the quadratic
+distortion, only depend on the difference $(x - y)$ and can be described with
+$d(x, y) = L(x - y)$. A distortion not having this form is the one by Itakura,
+Saito and Chaffee,
 
 \begin{equation}
 d(x, y) = (x - y)\, R(x)\, (x - y)^T

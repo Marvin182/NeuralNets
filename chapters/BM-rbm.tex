@@ -1,7 +1,11 @@
-\section{Restricted Boltzmann Machines}\label{sec:rbm}
+\section{Restricted Boltzmann Machines}\label{sec:rbm}\xindex{Boltzmann Machine!Restricted}%
 Literature: \cite{Bengio2009}
 
-For an efficient training Boltzmann machines can be restricted to have a bipartite graph with one set of visible neurons and on set of hidden neurons. As shown in figure \ref{fig:rbm} there are only visible-hidden and hidden-visible connection (still symmetric). Therefore hidden units $h_j$ only depend on the visible units $v_j$ and vice versa.
+For an efficient training Boltzmann machines can be restricted to have a
+bipartite graph with one set of visible neurons and on set of hidden neurons.
+As shown in \cref{fig:rbm} there are only visible-hidden and
+hidden-visible connection (still symmetric). Therefore hidden units $h_j$ only
+depend on the visible units $v_j$ and vice versa.
 \begin{align}
 p(h_j=1|v) = \sigma(c_j + \sum_i w_{ij} v_i)\\
 p(v_j=1|h) = \sigma(b_j + \sum_i w_{ij} h_i)

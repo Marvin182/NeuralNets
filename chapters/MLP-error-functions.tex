@@ -1,8 +1,11 @@
+%!TEX root = ../NeuralNets.tex
 \section{Error Functions}\label{sec:error-functions}
 Sometimes also called objective functions or loss-functions.
 
 \subsection{Mean-Squared Error}\label{sec:mse}
-As the name suggests the \gls{MSE} is defined as the mean (over all training examples) of squared difference between the correct value $t_i$ und the correct value $o_i$. This big errors are punished harder than small differences.
+As the name suggests the \gls{MSE} is defined as the mean (over all training
+examples) of squared difference between the correct value $t_i$ and the correct
+value $o_i$. This big errors are punished harder than small differences.
 \begin{equation}\label{eq:mse}
 E_{\text{MSE}} = \frac{1}{n} \sum_{i=1}^n (\mathbf{t}_i - \mathbf{o}_i)^2
 \end{equation}
@@ -69,7 +72,7 @@ node[left,pos=0] {$-\ln(o_j)$};
 node[right,pos=1] {$-\ln(1-o_j)$};	
 \end{axis}
 \end{tikzpicture}
-\caption{Error produced for $t_j=1$ (orange) and for $t_j=0$ (red). $o_j$ must be in range $(0,1]$, otherwise the logarithm can be complex or undefined or the error gets rediciously large.}
+\caption{Error produced for $t_j=1$ (orange) and for $t_j=0$ (red). $o_j$ must be in range $(0,1]$, otherwise the logarithm can be complex or undefined or the error gets ridiculously large.}
 \end{figure}
 
 \subsection{Classification Figure of Merit}\label{cfm}
@@ -89,7 +92,7 @@ Small weights tend to perform better and we can modify the error functions from 
 \item L1 norm: $||\mathbf{w}||_{L1} = \sum_j |\mathbf{w}_j|$
 \item L2 norm: $||\mathbf{w}||_{L2} = \sum_j \mathbf{w}_j^2$
 \item new error function $E' = E + \alpha_{L1} ||\mathbf{w}||_{L1} + \alpha_{L2} ||\mathbf{w}||_{L2}$
-\item new hyperparamaters $\alpha_{L1}$ and $\alpha_{L2}$, optimize on development set
+\item new hyperparameters $\alpha_{L1}$ and $\alpha_{L2}$, optimize on development set
 \end{itemize}
 
 \todo{Explain advantages and disadvantages, see \url{http://www.chioka.in/differences-between-l1-and-l2-as-loss-function-and-regularization}}

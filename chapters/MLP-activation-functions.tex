@@ -1,8 +1,9 @@
-\section{Activation Functions}\label{sec:activation-functions}
+%!TEX root = ../NeuralNets.tex
+\section{Activation Functions}\label{sec:activation-functions}\xindex{activation functions}%
 
 \subsection{Step Function}
 \begin{equation}\label{eq:step_function}
-\phi(x) = 
+\phi(x) =
 	\begin{cases}
 		1 & \text{if}\, x > 0\\
 		0 & \text{if}\, x \leq 0
@@ -33,7 +34,7 @@ node[above,pos=1] {$\phi(x)$};
 \end{figure}
 
 \subsection{Sigmoid}\label{sec:sigmoid}
-Most common activation function, can saturate and is easy to dervice.
+Most common activation function, can saturate and is easy to deviate.
 \begin{equation}\label{ed:sigmoid}
 \sigma(x) = \frac{1}{1 + e^{-\beta x}}
 \end{equation}
@@ -72,21 +73,21 @@ And because there exists algorithm using this, you should have seen the second d
 	clip = false,
 ]
 \addplot[
-	samples = 100, 
+	samples = 100,
 	color = red,
 	thick, smooth,
 	]
 {1/(1+e^(-x))}
 node[right,pos=1] {$\sigma(x)$};
 \addplot[
-	samples = 100, 
+	samples = 100,
 	color = orange,
 	thick, smooth,
 	]
 {1/(1+e^(-3*x))}
 node[above,pos=0.8] {$\sigma(x)$ with $\beta=3$};
 \addplot[
-	samples = 100, 
+	samples = 100,
 	color = blue,
 	thick, smooth,
 	]
@@ -111,14 +112,14 @@ node[below right,pos=0.9] {$\sigma(x)$ with $\beta=0.5$};
 	clip = false,
 ]
 \addplot[
-	samples = 100, 
+	samples = 100,
 	color = red,
 	thick, smooth,
 	]
 {(1/(1+e^(-x)))*(1-(1/(1+e^(-x))))}
 node[above,pos=1] {$\sigma'(x)$};
 \addplot[
-	samples = 100, 
+	samples = 100,
 	color = blue,
 	thick, smooth,
 	]
@@ -156,7 +157,7 @@ Similar to Sigmoid function, but with outputs in $[-1,1]$. Also not that if the 
 \end{equation}
 And it's derivative:
 \begin{equation}
-\frac{d\phi(x)}{dx} = 1 - \tanh(x) = \frac{(e^x - e^{-x})^2}{(e^x + e^{-x})^2}
+\frac{\diff \phi(x)}{\diff x} = 1 - \tanh(x) = \frac{(e^x - e^{-x})^2}{(e^x + e^{-x})^2}
 \end{equation}
 \begin{figure}
 \centering
@@ -172,14 +173,14 @@ And it's derivative:
 	clip = false,
 ]
 \addplot[
-	samples = 100, 
+	samples = 100,
 	color = red,
 	thick, smooth,
 	]
 {tanh(x)}
 node[right,pos=1] {$\tanh(x)$};
 \addplot[
-	samples = 100, 
+	samples = 100,
 	color = blue,
 	thick, smooth,
 	]
@@ -208,29 +209,29 @@ $$\phi(x) = x$$
 	clip = false,
 ]
 \addplot[
-	domain = -5:5, 
-	samples = 100, 
+	domain = -5:5,
+	samples = 100,
 	color = blue,
 	thick, smooth,
 	]
 {x}
 node[left,pos=0] {$x$};
 \addplot[
-	domain = -5:5, 
-	samples = 100, 
+	domain = -5:5,
+	samples = 100,
 	color = red,
 	thick, smooth,
 	]
 {max(0,x)}
 node[left,pos=0] {$\max(0,x)$};
 \addplot[
-	domain = -5:5, 
-	samples = 100, 
+	domain = -5:5,
+	samples = 100,
 	color = orange,
 	thick, smooth,
 	]
 {ln(1+e^x)}
-node[right,pos=1] {$\ln(1+e^x)$};	
+node[right,pos=1] {$\ln(1+e^x)$};
 \end{axis}
 \end{tikzpicture}
 \caption{Linear Function (blue), Rectified Linear Unit (red), Softplus (orange)}
@@ -241,7 +242,7 @@ The Rectified Linear Unit (ReLU) is more biologically plausible.
 \begin{align}
 \phi(x) = \max(0, x)
 \intertext{And it's derivative}
-\frac{d\phi(x)}{dx} = 
+\frac{\diff \phi(x)}{\diff x} =
 	\begin{cases}
 		1 & \text{if}\, x > 0\\
 		0 & \text{if}\, x \leq 0\\
@@ -253,7 +254,7 @@ Smoothed version of ReLU.
 \begin{align}\label{eq:softplus}
 \phi(x) = \ln(1 + e^x)
 \intertext{And it's derivative}
-\frac{d\phi(x)}{dx} = \frac{e^x}{1 + e^x} = \frac{1}{e^{-x} + 1}
+\frac{\diff \phi(x)}{\diff x} = \frac{e^x}{1 + e^x} = \frac{1}{e^{-x} + 1}
 \end{align}
 
 \subsection{Maxout}

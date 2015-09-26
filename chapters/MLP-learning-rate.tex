@@ -1,7 +1,10 @@
+%!TEX root = ../NeuralNets.tex
 \section{Learning Rate}\label{sec:learning-rate}
 Literature: \cite[Chapter 6.8]{Duda2000}
 
-We use the learning rate $\eta$ in our weight updates: $$w_{ij} \leftarrow w_{ij} + \eta\, \delta_j a_i$$
+We use the learning rate $\eta$ in our weight updates:
+
+\[w_{ij} \leftarrow w_{ij} + \eta\, \delta_j a_i\]
 
 There are several problems with a constant learning rate:
 \begin{itemize}
@@ -17,7 +20,7 @@ There are several problems with a constant learning rate:
 	\end{itemize}
 \end{itemize}
 
-And of course several ways to deat with it them:
+And of course several ways to deal with it them:
 \begin{itemize}
 \item Predetermined piecewise constant learning rate\newline
 	Use a predetermined sequence of $\eta_i$, increment $i$ after every iteration (epoch/batch)

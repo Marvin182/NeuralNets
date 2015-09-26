@@ -1,9 +1,13 @@
+%!TEX root = ../NeuralNets.tex
 \section{Learning Vector Quantization}\label{sec:lvq}
 Literature: \cite[Chapter 6]{Kohonen2001} and \cite{Kohonen1990}
 
-\Gls{LVQ} are used for statistical classification. Supervised learning is used to train multiple codebook vector per class. The class of new observations is then determined by the class of the closest codebook vector.
+\Gls{LVQ} are used for statistical classification. Supervised learning is used
+to train multiple codebook vector per class. The class of new observations is
+then determined by the class of the closest codebook vector.
 
-Kohonen published several versions of \gls{LVQ} that only differ slightly an the conditions and formulae for updates during the training.
+Kohonen published several versions of \gls{LVQ} that only differ slightly an
+the conditions and formulae for updates during the training.
 
 Notation:
 \begin{itemize}
@@ -19,7 +23,7 @@ Notation:
 \item $w$ window width (see LVQ2)
 \end{itemize}
 
-For convenience we also define $s(t)$ as 
+For convenience we also define $s(t)$ as
 \begin{equation}
 s(t) = \begin{cases}
 	+1 & \text{if $x$ and $m_c$ belong to the same class}\\
