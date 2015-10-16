@@ -1,4 +1,5 @@
-\chapter{Autoencoders}\label{chapter:autoencoders}
+%!TEX root = ../NeuralNets.tex
+\chapter{Autoencoders}\label{chapter:autoencoders}\xindex{autoencoder}%
 
 \begin{figure}
 \centering
@@ -37,14 +38,17 @@
 \end{figure}
 
 \begin{itemize}
-\item Hidden layer can be any size
-\item Output layer must have size of input layer
-\item Weight matrix $\mathbf{W}$ and bias $\mathbf{b}$ can be learning using backpropagation
-\item $\mathbf{W}^{(2)} = (\mathbf{W}^{(1)})^T$
-\item Non-linear activation function is required, otherwise autoencoder might learn pass through and hidden layer could be similar to \gls{PCA}
+    \item Hidden layer can be of any size
+    \item Output layer must have size of input layer
+    \item Weight matrix $\mathbf{W}$ and bias $\mathbf{b}$ can be learning
+          using backpropagation
+    \item $\mathbf{W}^{(2)} = (\mathbf{W}^{(1)})^T$
+    \item Non-linear activation function is required, otherwise autoencoder
+          might learn pass through and hidden layer could be similar to
+          \gls{PCA}
 \end{itemize}
 
-\section{Spares Autoencoders}\label{sec:sparse-ae}
+\section{Sparse Autoencoders}\label{sec:sparse-ae}\xindex{autoencoder!sparse}%
 Literature: \cite{Ng2011}
 
 Favor sparse weight matrices by forcing the average neuron activation $\hat\rho_j$ to be close to $\rho ~ 0.2$.
@@ -55,7 +59,8 @@ KL(\rho||\hat \rho_j) = \rho \log{\frac{\rho}{\hat \rho_j}} + (1-\rho) \log{\fra
 \intertext{, to the error function $E$,}
 E_{\text{sparse}} = E + \sum_{j\in\text{hidden}} KL(\rho||\hat\rho_j)
 \end{align}
-Figure \ref{fig:kl-divergence} shows the error introduced by the average neuron activation of a single hidden neuron.
+\Cref{fig:kl-divergence} shows the error introduced by the average neuron
+activation of a single hidden neuron.
 
 \begin{figure}
 \centering
@@ -71,7 +76,7 @@ Figure \ref{fig:kl-divergence} shows the error introduced by the average neuron 
 	clip = false,
 ]
 \addplot[
-	domain = -0.0:0.99, 
+	domain = -0.0:0.99,
 	samples = 1000,
 	color = blue,
 	thick, smooth,
@@ -84,19 +89,21 @@ node[above,pos=0.3] {$KL(0.2 || x)$};
 \label{fig:kl-divergence}
 \end{figure}
 
-\section{Denoising Autoencoders}\label{sec:da}
+\section{Denoising Autoencoders}\label{sec:da}\xindex{autoencoder!denoising}%
 \begin{itemize}
-\item Create corrupted $X'$ of training data $X$, \eg using Gaussian noise or by setting values to zero
-\item During training use $X'$ as input, but target $X$ as output
-\item Resulting autoencoder finds good features for noisy input
+    \item Create corrupted $X'$ of training data $X$, \eg using Gaussian noise
+          or by setting values to zero
+    \item During training use $X'$ as input, but target $X$ as output
+    \item Resulting autoencoder finds good features for noisy input
 \end{itemize}
 
-\section{Stacking Autoencoders}\label{sec:stacked-ae}
+\section{Stacking Autoencoders}\label{sec:stacked-ae}\xindex{autoencoder!stacking}%
 \begin{itemize}
-\item Train first autoencoder $\text{AE}_1$ using the original training data $X$
-\item Input $X$ into $\text{AE}_1$ and use output as $X'$
-\item Train second autoencoder $\text{AE}_2$ using $X'$
-\item Use $\text{AE}_2$ to transform $X'$ to $X''$
-\item Continue to create $\text{EA}_3, \text{EA}_4, \cdots$
-\item Use weight matrices and biases from autoencoders to stack a \gls{DNN}
+    \item Train first autoencoder $\text{AE}_1$ using the original training
+          data $X$
+    \item Input $X$ into $\text{AE}_1$ and use output as $X'$
+    \item Train second autoencoder $\text{AE}_2$ using $X'$
+    \item Use $\text{AE}_2$ to transform $X'$ to $X''$
+    \item Continue to create $\text{EA}_3, \text{EA}_4, \cdots$
+    \item Use weight matrices and biases from autoencoders to stack a \gls{DNN}
 \end{itemize}

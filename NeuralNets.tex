@@ -4,6 +4,7 @@
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
 \usepackage{nameref}
+\usepackage{makeidx}        % for automatically generation of an index
 \usepackage{mathtools}
 \usepackage{amsfonts}
 \usepackage{graphicx}
@@ -70,6 +71,23 @@
 \newcommand{\ie}{i.\,e. }
 \newcommand{\eg}{e.\,g. }
 \newcommand{\wrt}{w.\,r.\,t. }
+\newcommand*\diff{\mathop{}\!\mathrm{d}} % see http://tex.stackexchange.com/a/60546/5645
+\newcommand*\Diff[1]{\mathop{}\!\mathrm{d^#1}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% make the index link to the correct part of the page               %
+% http://tex.stackexchange.com/q/74493/5645                         %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcounter{indexanchor}
+\newcommand*{\xindex}[1]{%
+  \stepcounter{indexanchor}% make anchor unique
+  \def\theindexterm{#1}%
+  \edef\doindexentry{\noexpand\index
+    {\expandonce\theindexterm|indexanchor{index-\theindexanchor}}}%
+  \raisebox{\baselineskip}{\hypertarget{index-\theindexanchor}%
+    {\doindexentry}}%
+}
+\newcommand*{\indexanchor}[2]{\hyperlink{#1}{#2}}
 
 \title{Neuronal Networks \\ \large Formulae Collection}
 \author{Marvin Ritter\\
@@ -89,7 +107,9 @@
 	colorlinks,
 	citecolor=Green,
 }
-
+\usepackage{csquotes}       % \enquote{}
+\usepackage[nameinlink,noabbrev]{cleveref} % has to be after hyperref, ntheorem, amsthm
+\makeindex
 \begin{document}
 
 \maketitle
@@ -99,7 +119,7 @@ This is my personal collection of formulae in the field of neural networks. Wher
 
 Corrections, supplements (or wishes for it) and links to good sources/papers are very welcome. Just mail me to \href{mailtto:marvin.ritter@gmail.com}{marvin.ritter@gmail.com} or create a ticket/pull request.
 
-\tableofcontents 
+\tableofcontents
 
 \include{chapters/Intro}
 \include{chapters/VQ}
@@ -114,7 +134,10 @@ Corrections, supplements (or wishes for it) and links to good sources/papers are
 \bibliography{Remote}
 
 \printglossary[type=\acronymtype]
-
+\clearpage
+\addcontentsline{toc}{chapter}{Index}
+\renewcommand{\indexname}{Index}
+\printindex
 \listoftodos
 
 \end{document}

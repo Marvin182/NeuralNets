@@ -1,4 +1,5 @@
-\section{Boltzmann Machines}\label{sec:bm}
+%!TEX root = ../NeuralNets.tex
+\section{Boltzmann Machines}\label{sec:bm}\xindex{Boltzmann Machine}%
 Literature: \cite{Bengio2009}
 
 \emph{Boltzmann machines} are stochastic recurrent neural networks. They work similar \emph{Hopfield nets} in that they have a binary state vector ($s_j \in {0,1}$), which is sometimes divided in visible states (neurons) $v_j$ and hidden neurons $h_j$. But while the activation calculation in \emph{Hopfield nets} is deterministically, it is stochastic for \gls{BM}.
@@ -38,7 +39,7 @@ Further we define the network architecture as follows
 % p(v) &= \sum_h \frac{e^{-E(v, h)}}{Z}
 % \end{align}
 
-% To map this formulation to one similar to Equation \ref{eq:uiae}, we introduce the notation of \emph{free energy} $F$:
+% To map this formulation to one similar to \cref{eq:uiae}, we introduce the notation of \emph{free energy} $F$:
 % \begin{align}\label{eq:free-energy}
 % F(v) &= - \log \sum_h e^{-E(v,h)} \\
 % Z &= \sum_v e^{-F(v)} &= \sum_v e^{\log \sum_h e^{-E(v,h)}} &= \sum_v \sum_h e^{-E(v,h)}\\
@@ -60,7 +61,8 @@ E(v,h) &= - \sum_i b_i v_i - \sum_i c_i h_i - \sum_{i,j} v_i w_{ij}^{vh} h_j - \
 \end{align}
 
 \subsection{Training}
-Training is done by calculating the gradient of the log-likelihood derived by the the parameter set $\theta$.
+Training is done by calculating the gradient of the log-likelihood derived by
+the the parameter set $\theta$.
 \begin{equation}
 \frac{\partial \log p(v)}{\partial \theta}
 \end{equation}
@@ -72,7 +74,7 @@ Use temperature $T$ to allow more changes in the beginning (\eg jumps out of bad
 \begin{equation}
 p(s_j = 1) = \frac{1}{1 + e^{\frac{-z_j}{T}}}
 \end{equation}
-Figure \ref{fig:bm-simulated-annealing} shows curves with different temperature.
+\Cref{fig:bm-simulated-annealing} shows curves with different temperature.
 
 \begin{figure}
 \centering
@@ -116,6 +118,9 @@ node[right,pos=1] {$T=1$};
 \end{figure}
 
 \subsection{Why to restrict BMs}
-Unrestricted Boltzmann machines are very powerful and can compute every function. But due the complex net structure the training is very slow and computational expensive. \Glspl{RBM} applying constraints to the network architecture, but can still compute any function.
+Unrestricted Boltzmann machines are very powerful and can compute every
+function. But due the complex net structure the training is very slow and
+computational expensive. \Glspl{RBM} applying constraints to the network
+architecture, but can still compute any function.
 
 

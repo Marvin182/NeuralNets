@@ -1,4 +1,5 @@
-\section{Backpropagation}\label{sec:backpropagation}
+%!TEX root = ../NeuralNets.tex
+\section{Backpropagation}\label{sec:backpropagation}\xindex{Backpropagation}%
 Literature: \cite[Chapter 4.5]{Mitchell1997}, \cite[Chapter 6.3]{Duda2000}, \cite{Patterson1997} and the original paper \cite{Rumelhart1986}
 
 \subsection{Notation}
@@ -25,10 +26,10 @@ We start with the gradient in our output layer:
 = a_i^{(L-1)}\\
 \frac{\partial a_j^{(L)}}{\partial z_j^{(L)}} &= \frac{\partial \phi(z_j^{(L)})}{\partial z_j^{(L)}}
 = (\phi(z_j^{(L)}) (1 - \phi(z_j^{(L)}))
-= o_j (1 - o_j) \tag{sigmoid derivative, see \ref{sec:sigmoid}} \\
+= o_j (1 - o_j) \tag{sigmoid derivative, see \cref{sec:sigmoid}} \\
 \frac{\partial E}{\partial a_j^{(L)}} &= \frac{\partial E}{\partial o_j}
 = \frac{\partial \half \sum_{i=1}^k (t_i - o_i)^2}{\partial o_j}
-= (o_j - t_j) \tag{MSE derivative, see \ref{sec:mse}}\\
+= (o_j - t_j) \tag{MSE derivative, see \cref{sec:mse}}\\
 \intertext{putting everything together}
 \frac{\partial E}{\partial w_{ij}^{(L)}} &= (o_j - t_j) o_j (1 - o_j) a_i^{(L-1)}
 \end{align}

@@ -1,11 +1,14 @@
+%!TEX root = ../NeuralNets.tex
 \chapter{Perceptron}\label{chapter:perceptron}
 
 \section{Gradient Descent Algorithm}
-This is the base for most learning algorithms and follows a very simple approach. Derive to error function $E$ with respect to the set of parameters $\theta$ and use the gradient and the learning rate $\eta$ to update $\theta$.
+This is the base for most learning algorithms and follows a very simple
+approach. Derive to error function $E$ with respect to the set of parameters
+$\theta$ and use the gradient and the learning rate $\eta$ to update $\theta$.
 
 \begin{algorithm}[H]
 	\While{not converged}{
-		$\theta_j \leftarrow \theta_j - \eta \frac{\partial E}{\partial \theta_j}$ \quad $(j=1,...,|\theta|)$
+		$\theta_j \leftarrow \theta_j - \eta \frac{\partial E}{\partial \theta_j}$ \quad $(j=1, \dots,|\theta|)$
 	}
 \caption{Gradient descent algorithm}
 \end{algorithm}

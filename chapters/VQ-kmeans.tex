@@ -1,11 +1,14 @@
+%!TEX root = ../NeuralNets.tex
 \section{k-Means (Lloyd's Algorithm)}
-Finding $C^*(i)$ by enumeration is too time-consuming. Instead we will use iterative greedy descent which leads to a local optimum.
-The error function is defined as
+Finding $C^*(i)$ by enumeration is too time-consuming. Instead we will use
+iterative greedy descent which leads to a local optimum. The error function is
+defined as
 \begin{equation}
 E = \sum_{k=1}^K \sum_{C(i)=k} d(x_i, \mu_k)
 \end{equation}
 
-Using the squared Euclidean distance, $d(x_i, \mu_k) = ||x_i - \mu_k||^2$, will effectively assign each sample to the closet center.
+Using the squared Euclidean distance, $d(x_i, \mu_k) = ||x_i - \mu_k||^2$, will
+effectively assign each sample to the closet center.
 
 A slightly different definition is to minimize our already defined $W(C)$
 \begin{equation}
@@ -19,20 +22,24 @@ Also called \emph{Lloyd's Algorithm} we optimize for $J$ in a greedy fashion.
 	\begin{itemize}
 	\item distribute uniformly
 	\item randomly (different distribution are possible)
-	\item start with one random centroid and iteratively place to next one by maximizing the distance to all others
+    \item start with one random centroid and iteratively place to next one by
+          maximizing the distance to all others
 	\end{itemize}
 \item \textbf{Classify}: Assign each observation $i$ to the nearest centroid: $$C(i) = \argmin\limits_{1\leq k \leq K} ||x_i - \mu_k||^2$$
 \item \textbf{Recenter}: For each class $k$, compute a new centroid as the mean of the updated class assignments: $$\mu_k = \frac{\sum\limits_{C(i)=k} x_i}{N_k}$$
 \item \textbf{Repeat step 2 and 3 until stopping criteria fulfilled} (\eg centers stop moving, or equally until C(i) stays unchanged).
 \end{enumerate}
 
-During the course of the k-means algorithm, the error function monotonically decreases into a local minimum. The proof is simply done by proofing that both steps will independently decrease $E$ if possible.
+During the course of the k-means algorithm, the error function monotonically
+decreases into a local minimum. The proof is simply done by proofing that both
+steps will independently decrease $E$ if possible.
 
 \section{Fuzzy k-Means}\label{sec:fuzzy-kmeans}
 Literature: \cite{Introduction2000}\\
 In English literature it is sometimes also called \emph{Fuzzy c-Means} (FCM).
 
-Observation does not belong strictly to one cluster, but has each $x_i$ a member ship degree $u_{ik}$ for each cluster~$k$.
+Observation does not belong strictly to one cluster, but has each $x_i$ a
+member ship degree $u_{ik}$ for each cluster~$k$.
 \begin{align}
 0 \leq u_{ik} \leq 1 \quad \forall i, k\\
 \sum_k u_{ik} = 1 \quad \forall i\\
@@ -42,7 +49,10 @@ Our new error function is
 \begin{equation}\label{eq:fuzzy-kmeans-error}
 E(m) = \sum_{i=1}^N \sum_{k=1}^K u_{ik}^m d(x_i, \mu_k)
 \end{equation}
-with fuzzifier $m \geq 1$ that controls fuzziness of the custers. With $m=1$ the membership degrees will converge to $0$ or $1$, which implies a crisp partitioning. In the absence of experimentation or domain knowledge, $m$ is commonly set to $2$.
+with fuzzifier $m \geq 1$ that controls fuzziness of the clusters. With $m=1$
+the membership degrees will converge to $0$ or $1$, which implies a crisp
+partitioning. In the absence of experimentation or domain knowledge, $m$ is
+commonly set to $2$.
 
 \begin{enumerate}
 \item \textbf{Compute degree of membership:}
@@ -75,14 +85,20 @@ The algorithm takes a parameter a small $\epsilon > 0$ (\eg $\epsilon=0.001$).
 	\end{split}
 	\end{align}
 \item \textbf{Run k-Means} Use k-Means to optimize to improve the $\mu_j(t)$.
-\item \textbf{Repeat step 2 and 3} until desired number of codebook vectors is reached (for $t=1,\cdots,\log_2(K)-1$)
+\item \textbf{Repeat step 2 and 3} until desired number of codebook vectors is
+      reached (for $t=1,\cdots,\log_2(K)-1$)
 \end{enumerate}
 
 Our final codebook will be $\mu_j(\log_2(K))$.
 
-This simple form of the \emph{LBG-Algorithm} doesn't have any advantages over k-means, but if splitting of the centroids is done smart, the final centroids are more likely to be a good representation of the data:
+This simple form of the \emph{LBG-Algorithm} doesn't have any advantages over
+k-means, but if splitting of the centroids is done smart, the final centroids
+are more likely to be a good representation of the data:
 \begin{itemize}
-\item k-Means initialization is random and not data dependent. Small groups of samples might get equal amount or even more centroids than big groups.
-\item $\epsilon$ can be set do split the centroids according to the direction with the highest variance for each dimension.
-\item Instead of splitting all centroids only the  with biggest variance or biggest number of assigned samples can be splitted.
+    \item k-Means initialization is random and not data dependent. Small groups of
+          samples might get equal amount or even more centroids than big groups.
+    \item $\epsilon$ can be set do split the centroids according to the
+          direction with the highest     variance for each dimension.
+    \item Instead of splitting all centroids only the  with biggest variance or
+          biggest number of assigned samples can be splitted.
 \end{itemize}
