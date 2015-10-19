@@ -48,14 +48,26 @@ Missing
 	- stacking autoencoders
 	- stacking RBMs
 	- SOM (Self-organizing maps)
-
-Out of scope (at least for now)
--------------------------------
-- What is Curriculum Learning?
 - L_1 vs L_2 regularization for feature selection
 - AdaBoost
 - DBM (deterministic Boltzmann machine)
 
 Open Questions
 --------------
-- Does a trained Hopfield net always have spurious states? what to do (in practice) if you get to one during evaluation?
+- What is Curriculum Learning?
+- Does a trained Hopfield net always have spurious states?
+
+Contribute
+----------
+As said above contributions of any kind are welcome. If you want to make changes clone the repository and start working. Here are a few things to keep in mind:
+- When adding new latex packages or setting things in the preamble write a small comment above it explaining what it does or how to use it.
+- If you write formulae stick to the notation introduced in the beginning of the document. If necessary, you can of course extend it, but think twice before you do and keep it consistent.
+- Try to follow the recommendations by [Chris Beams on commit messages](http://chris.beams.io/posts/git-commit/), it makes it much easier for me (and others) to quickly get what you have changed. Here his seven rules for great commit messages:
+	1. Separate subject from body with a blank line
+	2. Limit the subject line to 50 characters
+	3. Capitalize the subject line
+	4. Do not end the subject line with a period
+	5. Use the imperative mood in the subject line
+	6. Wrap the body at 72 characters
+	7. Use the body to explain what and why vs. how
+
