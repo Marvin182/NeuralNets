@@ -5,18 +5,19 @@ This is my personal collection of formulae in the field of neural networks. Wher
 
 Corrections, supplements (or wishes for it) and links to good sources/ papers are very welcome. Just mail me to marvin.ritter@gmail.com or create a ticket/pull request.
 
-Missing
--------
+ToDo / Missing Sections
+-----------------------
 - Overview off network architectures (linear models: perceptron, LVQ; feed forward networks: MLP, DNN; recurrent networks: Hopfield nets, BM, RBM, RNN; shared parameters: DA, TDNN, CNN)
 - Overview of Pattern recognition (graphic + examples)
 - SVM (Support Vector Machines)
-- LSTM (Long Short-Term Memory)
 - Shared Weights
 	- TDNN (Time delay neural networks), with example for speech recognition
 	- CNN (convolutional neural networks), with example for image recognition
 - RNN (Recurrent Neural Networks)
+	- training sequences
 	- Backpropagation through time
 	- Vanishing Gradient
+	- LSTM (Long Short-Term Memory)
 - Generalization
 	- Overfitting
 	- Underfitting
@@ -25,7 +26,7 @@ Missing
 	- How to grow networks: Cascade Correlation, Meiosis Nets, Automativ Structure Optimization
 - Section on splitting the training data into training set, validation set, development set, test set, ...
 - Hyperparamaters \Theta (list of examples, how to choose/train them?)
-- Alternatives to Backpropagation
+- Alternative training methods
 	- Second-order methods (Quickprop)
 	- Conjugate gradient method
 - What is the Schwarz Criterion for k-Means
@@ -43,7 +44,6 @@ Missing
 - Hebbian learning rule
 - Section on which learning rules can be used with BP (linear dosen't make sense, step is not possible, what about ReLu?)
 - Highlight difference between Momentum and Rprop (Momentum might roll over small minima, Rprop is more like to converge into them)
-- Sequence Training
 - Empty sections
 	- stacking autoencoders
 	- stacking RBMs
@@ -51,6 +51,7 @@ Missing
 - L_1 vs L_2 regularization for feature selection
 - AdaBoost
 - DBM (deterministic Boltzmann machine)
+- PCA for data preprocessing/ normalization
 
 Open Questions
 --------------

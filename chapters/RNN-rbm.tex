@@ -1,3 +1,4 @@
+%!TEX root = ../NeuralNets.tex
 \section{Restricted Boltzmann Machines}\label{sec:rbm}\xindex{Boltzmann Machine!Restricted}%
 Literature: \cite{Bengio2009}
 
@@ -46,7 +47,7 @@ With $b_j$ as the biases for the visible units and $c_j$ for the hidden units.
 E(v,h) = - \sum_{i,j} w_{ij} v_i h_j - \sum_i a_i v_i - \sum_i b_i h_i
 \end{equation}
 
-\section{Training}
+\subsection{Training}
 Literature: \cite{Hinton2012}
 
 % \begin{equation}
@@ -66,4 +67,4 @@ The most common algorithm used is \gls{CD} used inside a gradient-descent and pr
 \item $w_{ij} \leftarrow w_{ij} - \eta\, (\mathbf{v} \mathbf{h}^T - \mathbf{v}' \mathbf{h}^{'T})$
 \end{enumerate}
 
-\section{Stacking RBMs}
+\subsection{Stacking RBMs}
