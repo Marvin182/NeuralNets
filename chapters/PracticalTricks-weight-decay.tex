@@ -2,13 +2,10 @@
 \section{Weight Decay}\label{sec:weight-decay}
 Literature: \cite{Connect1992} and \cite[Chapter 6.8]{Duda2000}
 
-To help generalizing by simplifying a network and to avoid overfitting one can
-impose a heuristic that the weights stay small. This may not always lead to
-improved network performance, but experience showed that it helps in many cases
-and even can be used together with momentum (see \cref{sec:momentum}).
+To help generalizing by simplifying a network and to avoid overfitting one can impose a heuristic that the weights stay small.
+This may not always lead to improved network performance, but experience showed that it helps in many cases and even can be used together with momentum (see \cref{sec:momentum}).
 
-It is also every simple, after each weight update we simply ``decay'' the
-weights with a parameter $\epsilon \in (0,1)$.
+It is also every simple, after each weight update we simply ``decay'' the weights with a parameter $\epsilon \in (0,1)$.
 \begin{equation}\label{eq:weight-decay}
 w_{ij} \leftarrow w_{ij} (1-\epsilon)
 \end{equation}
@@ -20,10 +17,8 @@ w_{ij} &\leftarrow (w_{ij} - \eta\, \frac{\partial E}{\partial w_{ij}}) (1-\epsi
 &= -\epsilon\,w_{ij} - \eta'\,\frac{\partial E}{\partial w_{ij}}
 \end{align}
 
-Those weights that are need to solve the problem will increase enough with the
-weight update to compensate the small decrease, but others will get smaller and
-smaller until they can be eliminated completely. It can be shown that the above
-is equivalent to gradient descent we a modified error function:
+Those weights that are need to solve the problem will increase enough with the weight update to compensate the small decrease, but others will get smaller and smaller until they can be eliminated completely.
+It can be shown that the above is equivalent to gradient descent we a modified error function:
 \begin{align}
 E_{\text{weight decay}} &= E + \frac{2\epsilon}{\eta} \mathbf{w}^T \mathbf{w}
 \end{align}

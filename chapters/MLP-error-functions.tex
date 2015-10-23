@@ -1,11 +1,9 @@
 %!TEX root = ../NeuralNets.tex
-\section{Error Functions}\label{sec:error-functions}
+\section{Error Functions}\label{sec:error-functions}\xindex{error functions}\xindex{objective functions}%
 Sometimes also called objective functions or loss-functions.
 
 \subsection{Mean-Squared Error}\label{sec:mse}
-As the name suggests the \gls{MSE} is defined as the mean (over all training
-examples) of squared difference between the correct value $t_i$ and the correct
-value $o_i$. This big errors are punished harder than small differences.
+As the name suggests the \gls{MSE} is defined as the mean (over all training examples) of squared difference between the correct value $t_i$ and the correct value $o_i$. This big errors are punished harder than small differences.
 \begin{equation}\label{eq:mse}
 E_{\text{MSE}} = \frac{1}{n} \sum_{i=1}^n (\mathbf{t}_i - \mathbf{o}_i)^2
 \end{equation}

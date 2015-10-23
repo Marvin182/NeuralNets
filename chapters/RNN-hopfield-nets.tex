@@ -2,18 +2,10 @@
 \section{Hopfield Nets}\label{sec:hopfield-nets}\xindex{Hopfield Net}%
 Literature: \cite[Chapter 5.5]{Patterson1997}, \cite{Storkey1997}
 
-In the following we will only consider binary Hopfield nets, in which the
-neurons are limited to states $0$ (or $-/-1$) and $1$ (or $+/+1$) (sometimes
-also denoted as $+$ and $-$ or $-1$ and $+1$). Hopfield nets are not very
-efficient, but good to show the principle of neural nets and a good
-introduction to Boltzmann machines.
+In the following we will only consider binary Hopfield nets, in which the neurons are limited to states $0$ (or $-/-1$) and $1$ (or $+/+1$) (sometimes also denoted as $+$ and $-$ or $-1$ and $+1$).
+Hopfield nets are not very efficient, but good to show the principle of neural nets and a good introduction to Boltzmann machines.
 
-Hopfield nets consist of a single layer of neurons, that is fully connected and
-acts both as input and output layer. Weights are stored an a weight matrix $W$,
-where the entry $w_{ij}$ correspondents to the connection weight form
-neuron~$i$ to neuron~$j$. We will not allow self loops ($w_{ii} = 0$) and the
-connections will be symmetric ($w_{ij}=w_{ji}$). There exists variations
-without those limitations.
+Hopfield nets consist of a single layer of neurons, that is fully connected and acts both as input and output layer. Weights are stored an a weight matrix $W$, where the entry $w_{ij}$ correspondents to the connection weight form neuron~$i$ to neuron~$j$. We will not allow self loops ($w_{ii} = 0$) and the connections will be symmetric ($w_{ij}=w_{ji}$). There exists variations without those limitations.
 
 \subsection{Update Procedure}
 \begin{enumerate}

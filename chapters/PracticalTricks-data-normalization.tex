@@ -1,9 +1,8 @@
 %!TEX root = ../NeuralNets.tex
 \section{Data Normalization}\label{sec:data-normalization}
 
-Numerical needs to be normalized because \gls{NN} function best with inputs
-between in range $[0,1]$ or $[-1,+1]$. There are two common normalizations, the
-min-max normalization (sometimes called feature scaling),
+Numerical needs to be normalized because \gls{NN} function best with inputs between in range $[0,1]$ or $[-1,+1]$.
+There are two common normalizations, the min-max normalization (sometimes called feature scaling),
 \begin{equation}\label{eq:min_max_normalization}
 \hat x_i = \frac{x_i - \min(x)}{\max(x) - \min(x)}
 \end{equation}
