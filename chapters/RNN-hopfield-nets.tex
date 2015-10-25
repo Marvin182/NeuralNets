@@ -7,6 +7,30 @@ Hopfield nets are not very efficient, but good to show the principle of neural n
 
 Hopfield nets consist of a single layer of neurons, that is fully connected and acts both as input and output layer. Weights are stored an a weight matrix $W$, where the entry $w_{ij}$ correspondents to the connection weight form neuron~$i$ to neuron~$j$. We will not allow self loops ($w_{ii} = 0$) and the connections will be symmetric ($w_{ij}=w_{ji}$). There exists variations without those limitations.
 
+\begin{figure}
+\centering
+\begin{tikzpicture}[x=0.8cm, y=0.8cm, >=stealth,font=\boldmath,thick]
+% neurons
+\node[neuron] (neuron-1) at (-5,  0) {+};
+\node[neuron] (neuron-2) at ( 0,  4) {-};
+\node[neuron] (neuron-3) at ( 5,  0) {+};
+\node[neuron] (neuron-4) at ( 0, -4) {+};
+
+% neuron labels
+\node[above] at (neuron-1.north) {1};
+\node[right] at (neuron-2.east) {2};
+\node[above] at (neuron-3.north) {3};
+\node[right] at (neuron-4.east) {4};
+
+% connections
+\foreach \i in {1,2,3}
+	\foreach \j in {\i,...,4}
+		\ifthenelse{\i=\j}{}{\draw[<->] (neuron-\i) --node[auto,pos=0.35]{$w_{\i,\j}=w_{\j,\i}$} (neuron-\j)};
+\end{tikzpicture}
+\caption{Hopfield Net with 4 neurons and state vector $x = (+, -, +, +)$}
+\label{fig:hopfield-net}
+\end{figure}
+
 \subsection{Update Procedure}
 \begin{enumerate}
 \item Set state $x$ to our input
